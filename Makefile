@@ -17,7 +17,7 @@ CFLAGS := -Wall -Wextra -Werror
 $(NAME): $(MANOBJ)
 	ar rcs $(NAME) $(MANOBJ)
 
-bonus: $(.BONUS)
+bonus: $(NAME) $(.BONUS)
 
 $(.BONUS): $(BONOBJ)
 	ar rcs $(NAME) $(BONOBJ)
