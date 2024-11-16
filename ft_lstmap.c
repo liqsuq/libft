@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 13:37:50 by kadachi           #+#    #+#             */
-/*   Updated: 2024/11/11 12:15:54 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:40:04 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		tmp = ft_lstnew(content);
 		if (tmp == NULL)
 		{
-			if (f != NULL)
+			if (f != NULL || del != NULL)
 				del(content);
 			ft_lstclear(&ret, del);
 			return (NULL);

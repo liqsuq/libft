@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:30:01 by kadachi           #+#    #+#             */
-/*   Updated: 2024/11/09 19:33:03 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:33:54 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	if (nmemb != 0 && size != 0)
-		if ((nmemb > SIZE_MAX / size) || (size > SIZE_MAX / nmemb))
+		if ((nmemb > SIZE_MAX / size))
 			return (NULL);
 	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
