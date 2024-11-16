@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:00:04 by kadachi           #+#    #+#             */
-/*   Updated: 2024/11/15 16:26:16 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:33:12 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,20 @@ int	ft_atoi(const char *nptr)
 // 	printf("%d\n", ft_atoi("  -1234"));
 // 	printf("%d\n", atoi("  -1234ab567"));
 // 	printf("%d\n", ft_atoi("  -1234ab567"));
-// 	printf("%d\n", atoi("-2147483648"));
-// 	printf("%d\n", ft_atoi("-2147483648"));
 // 	printf("%d\n", atoi("2147483647"));
 // 	printf("%d\n", ft_atoi("2147483647"));
+// 	printf("%d\n", atoi("-2147483648"));
+// 	printf("%d\n", ft_atoi("-2147483648"));
 // 	printf("%d\n", atoi("++1234"));
 // 	printf("%d\n", ft_atoi("++1234"));
 // 	printf("%d\n", atoi("+1234"));
 // 	printf("%d\n", ft_atoi("+1234"));
 // 	printf("%d\n", atoi("--1234"));
 // 	printf("%d\n", ft_atoi("--1234"));
-// 	printf("%d\n", atoi("2147483650"));
-// 	printf("%d\n", ft_atoi("2147483650"));
+// 	printf("%d\n", atoi("2147483648"));
+// 	printf("%d\n", ft_atoi("2147483648"));
+// 	printf("%d\n", atoi("-2147483649"));
+// 	printf("%d\n", ft_atoi("-2147483649"));
 // 	printf("%d\n", atoi("9223372036854775807"));
 // 	printf("%d\n", ft_atoi("9223372036854775807"));
 // 	printf("%d\n", atoi("-9223372036854775808"));
