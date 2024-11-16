@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:42:15 by kadachi           #+#    #+#             */
-/*   Updated: 2024/11/10 16:47:34 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/11/16 16:59:27 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (NULL);
 	if (start > ft_strlen(s))
-	{
-		ptr = malloc(sizeof(char));
-		if (ptr == NULL)
-			return (NULL);
-		*ptr = '\0';
-		return (ptr);
-	}
+		return (ft_strdup(""));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
 	ptr = malloc((len + 1) * sizeof(char));
