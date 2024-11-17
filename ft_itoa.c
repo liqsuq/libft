@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:52:54 by kadachi           #+#    #+#             */
-/*   Updated: 2024/11/09 19:14:52 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/11/17 19:21:01 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 static int	count_digits(int n)
 {
-	int	len;
-
-	len = 1;
+	if (n == 0)
+		return (0);
 	if (n < 0)
-		len++;
-	n /= 10;
-	while (n != 0)
-	{
-		len++;
-		n /= 10;
-	}
-	return (len);
+		return (count_digits(-n / 10) + 2);
+	return (count_digits(n / 10) + 1);
 }
 
 char	*ft_itoa(int n)
