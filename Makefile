@@ -12,12 +12,13 @@ BONSRC := ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
           ft_lstmap.c
 BONOBJ := $(BONSRC:.c=.o)
 PRIDIR := ft_printf
-PRISRC := ft_printf.c print_number.c print_string.c
-PRIOBJ := $(addprefix $(PRIDIR)/, $(PRISRC:.c=.o))
+PRISRC := $(addprefix $(PRIDIR)/, ft_printf.c print_number.c print_string.c)
+PRIOBJ := $(PRISRC:.c=.o)
 GNLDIR := get_next_line
-GNLSRC := $(addprefix $(GNLDIR)/, get_next_line.c get_next_line_utils.c )
+GNLSRC := $(addprefix $(GNLDIR)/, get_next_line.c get_next_line_utils.c)
 GNLOBJ := $(GNLSRC:.c=.o)
-CFLAGS := -Wall -Wextra -Werror
+OBJECT := $(MANOBJ) $(BONOBJ) $(PRIOBJ) $(GNLOBJ)
+CFLAGS := -Wall -Wextra -Werror -I.
 .BONUS := .bonus
 .PRINTF := .printf
 .GETNL := .getnl
@@ -39,9 +40,6 @@ $(.PRINTF): $(PRIOBJ)
 	ar rcs $(NAME) $(PRIOBJ)
 	touch $(.PRINTF)
 
-$(PRIOBJ):
-	make -C $(PRIDIR)
-
 getnl: $(NAME) $(.GETNL)
 
 $(.GETNL): $(GNLOBJ)
@@ -49,11 +47,9 @@ $(.GETNL): $(GNLOBJ)
 	touch $(.GETNL)
 
 clean:
-	make -C $(PRIDIR) clean
-	$(RM) $(MANOBJ) $(BONOBJ) $(GNLOBJ) $(.BONUS) $(.PRINTF) $(.GETNL)
+	$(RM) $(OBJECT) $(.BONUS) $(.PRINTF) $(.GETNL)
 
 fclean: clean
-	make -C $(PRIDIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all
