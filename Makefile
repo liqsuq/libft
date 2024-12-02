@@ -6,13 +6,19 @@ MANSRC := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
           ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
           ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c \
           ft_putendl_fd.c ft_striteri.c ft_putnbr_fd.c ft_putstr_fd.c
+MANOBJ := $(MANSRC:.c=.o)
 BONSRC := ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
           ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
           ft_lstmap.c
-MANOBJ := $(MANSRC:.c=.o)
 BONOBJ := $(BONSRC:.c=.o)
+PRIDIR := ft_printf
+PRISRC := ft_printf.c print_number.c print_string.c
+PRIOBJ := $(addprefix $(PRIDIR)/, $(PRISRC:.c=.o))
 CFLAGS := -Wall -Wextra -Werror
 .BONUS := .bonus
+.PRINTF := .printf
+
+all: $(NAME) bonus printf
 
 $(NAME): $(MANOBJ)
 	ar rcs $(NAME) $(MANOBJ)
@@ -23,12 +29,21 @@ $(.BONUS): $(BONOBJ)
 	ar rcs $(NAME) $(BONOBJ)
 	touch $(.BONUS)
 
-all: $(NAME)
+printf: $(NAME) $(.PRINTF)
+
+$(.PRINTF): $(PRIOBJ)
+	ar rcs $(NAME) $(PRIOBJ)
+	touch $(.PRINTF)
+
+$(PRIOBJ):
+	make -C $(PRIDIR)
 
 clean:
-	$(RM) $(MANOBJ) $(BONOBJ) $(.BONUS)
+	make -C $(PRIDIR) clean
+	$(RM) $(MANOBJ) $(BONOBJ) $(.BONUS) $(.PRINTF)
 
 fclean: clean
+	make -C $(PRIDIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all

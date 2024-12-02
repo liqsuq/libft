@@ -56,4 +56,6 @@ libftTester/
 libft-tester-tokyo/
 .vscode/
 .bonus
+.printf
+.getnl
 
