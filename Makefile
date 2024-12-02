@@ -14,11 +14,15 @@ BONOBJ := $(BONSRC:.c=.o)
 PRIDIR := ft_printf
 PRISRC := ft_printf.c print_number.c print_string.c
 PRIOBJ := $(addprefix $(PRIDIR)/, $(PRISRC:.c=.o))
+GNLDIR := get_next_line
+GNLSRC := $(addprefix $(GNLDIR)/, get_next_line.c get_next_line_utils.c )
+GNLOBJ := $(GNLSRC:.c=.o)
 CFLAGS := -Wall -Wextra -Werror
 .BONUS := .bonus
 .PRINTF := .printf
+.GETNL := .getnl
 
-all: $(NAME) bonus printf
+all: $(NAME) bonus printf getnl
 
 $(NAME): $(MANOBJ)
 	ar rcs $(NAME) $(MANOBJ)
@@ -38,9 +42,15 @@ $(.PRINTF): $(PRIOBJ)
 $(PRIOBJ):
 	make -C $(PRIDIR)
 
+getnl: $(NAME) $(.GETNL)
+
+$(.GETNL): $(GNLOBJ)
+	ar rcs $(NAME) $(GNLOBJ)
+	touch $(.GETNL)
+
 clean:
 	make -C $(PRIDIR) clean
-	$(RM) $(MANOBJ) $(BONOBJ) $(.BONUS) $(.PRINTF)
+	$(RM) $(MANOBJ) $(BONOBJ) $(GNLOBJ) $(.BONUS) $(.PRINTF) $(.GETNL)
 
 fclean: clean
 	make -C $(PRIDIR) fclean
