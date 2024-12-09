@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:32:18 by kadachi           #+#    #+#             */
-/*   Updated: 2024/12/01 12:08:17 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/12/09 16:26:58 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*ultohex(unsigned long n)
 	return (str);
 }
 
-int	print_ptr(unsigned long ptr)
+int	print_ptr(int fd, unsigned long ptr)
 {
 	char	*str;
 	int		size;
@@ -53,8 +53,8 @@ int	print_ptr(unsigned long ptr)
 	str = ultohex(ptr);
 	if (str == NULL)
 		return (-1);
-	ft_putstr_fd("0x", 1);
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd("0x", fd);
+	ft_putstr_fd(str, fd);
 	size = ft_strlen(str) + 2;
 	free(str);
 	return (size);
@@ -87,7 +87,7 @@ static char	*uitobase(unsigned int n, char *base)
 	return (str);
 }
 
-int	print_int(int n, int is_unsigned, char *base)
+int	print_int(int fd, int n, int is_unsigned, char *base)
 {
 	char	*str;
 	int		size;
@@ -98,7 +98,7 @@ int	print_int(int n, int is_unsigned, char *base)
 		str = ft_itoa(n);
 	if (str == NULL)
 		return (-1);
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd(str, fd);
 	size = ft_strlen(str);
 	free(str);
 	return (size);

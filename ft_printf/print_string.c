@@ -6,27 +6,27 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:31:35 by kadachi           #+#    #+#             */
-/*   Updated: 2024/11/30 20:34:09 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/12/09 16:26:17 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_char(int c)
+int	print_char(int fd, int c)
 {
-	ft_putchar_fd(c, 1);
+	ft_putchar_fd(c, fd);
 	return (1);
 }
 
-int	print_str(char *str)
+int	print_str(int fd, char *str)
 {
 	if (str == NULL)
 		str = "(null)";
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd(str, fd);
 	return (ft_strlen(str));
 }
 
-int	print_raw(const char *format)
+int	print_raw(int fd, const char *format)
 {
 	char	*str;
 	int		i;
@@ -37,7 +37,7 @@ int	print_raw(const char *format)
 	str = ft_substr(format, 0, i);
 	if (str == NULL)
 		return (-1);
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd(str, fd);
 	free(str);
 	return (i);
 }
