@@ -15,7 +15,7 @@ PRIDIR := ft_printf
 PRISRC := $(addprefix $(PRIDIR)/, ft_printf.c print_number.c print_string.c)
 PRIOBJ := $(PRISRC:.c=.o)
 GNLDIR := get_next_line
-GNLSRC := $(addprefix $(GNLDIR)/, get_next_line.c get_next_line_utils.c)
+GNLSRC := $(addprefix $(GNLDIR)/, get_next_line.c)
 GNLOBJ := $(GNLSRC:.c=.o)
 OBJECT := $(MANOBJ) $(BONOBJ) $(PRIOBJ) $(GNLOBJ)
 CFLAGS := -Wall -Wextra -Werror -I.
