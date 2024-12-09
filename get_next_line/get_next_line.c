@@ -12,6 +12,22 @@
 
 #include "get_next_line.h"
 
+int	ft_fgetc(int fd)
+{
+	static char		buf[BUFFER_SIZE];
+	static ssize_t	pos;
+	static ssize_t	size;
+
+	if (pos >= size)
+	{
+		size = read(fd, buf, BUFFER_SIZE);
+		pos = 0;
+		if (size <= 0)
+			return (EOF);
+	}
+	return ((unsigned char)buf[pos++]);
+}
+
 static char	*putc_and_dump(char *str, char c)
 {
 	static char		buf[BUFFER_SIZE + 1];
