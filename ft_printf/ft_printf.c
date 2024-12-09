@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	select_format(const char *format, va_list argp)
+static int	select_format(const char *format, va_list argp)
 {
 	if (format[1] == 'c')
 		return (print_char(va_arg(argp, int)));
