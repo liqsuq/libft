@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 15:12:47 by kadachi           #+#    #+#             */
-/*   Updated: 2024/12/09 16:38:03 by kadachi          ###   ########.fr       */
+/*   Updated: 2024/12/09 16:43:20 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	select_format(int fd, const char *format, va_list argp)
 	return (-1);
 }
 
-int	ft_vdprintf(int fd, const char *format, va_list argp)
+static int	ft_vdprintf(int fd, const char *format, va_list argp)
 {
 	int	size;
 	int	tmp;
