@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 19:33:47 by kadachi           #+#    #+#             */
-/*   Updated: 2024/12/21 13:58:47 by kadachi          ###   ########.fr       */
+/*   Updated: 2025/01/24 18:20:47 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include "libft.h"
 
-# define DEC "01234567"
+# define DEC "0123456789"
 # define HEX_LO "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
 
