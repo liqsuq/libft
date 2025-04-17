@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:44:12 by kadachi           #+#    #+#             */
-/*   Updated: 2024/12/13 18:33:39 by kadachi          ###   ########.fr       */
+/*   Updated: 2025/04/17 09:58:12 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_fgetc(int fd)
 		size = read(fd, buf, BUFFER_SIZE);
 		pos = 0;
 		if (size <= 0)
-			return (EOF);
+			return ((char)EOF);
 	}
 	return ((unsigned char)buf[pos++]);
 }
@@ -36,7 +36,7 @@ static char	*putc_and_dump(char *str, char c)
 
 	if (c != EOF)
 		buf[pos++] = c;
-	if (pos == BUFFER_SIZE || c == '\n' || c == EOF)
+	if (pos == BUFFER_SIZE || c == '\n' || c == (char)EOF)
 	{
 		buf[pos] = '\0';
 		tmp = ft_strjoin(str, buf);
@@ -63,7 +63,7 @@ char	*get_next_line(int fd)
 		line = putc_and_dump(line, c);
 		if (line == NULL)
 			return (NULL);
-		if (c == '\n' || c == EOF)
+		if (c == '\n' || c == (char)EOF)
 			break ;
 	}
 	if (ft_strlen(line) == 0)
