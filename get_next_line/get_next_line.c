@@ -6,7 +6,7 @@
 /*   By: kadachi <kadachi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:44:12 by kadachi           #+#    #+#             */
-/*   Updated: 2025/04/17 09:58:12 by kadachi          ###   ########.fr       */
+/*   Updated: 2025/04/18 16:25:54 by kadachi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	*putc_and_dump(char *str, char c)
 	static ssize_t	pos;
 	char			*tmp;
 
-	if (c != EOF)
+	if (c != (char)EOF)
 		buf[pos++] = c;
 	if (pos == BUFFER_SIZE || c == '\n' || c == (char)EOF)
 	{
